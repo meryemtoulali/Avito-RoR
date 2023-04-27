@@ -11,6 +11,28 @@
   </head>
 
   <body>
+    <div>
+    <% if logged_in? %>
+    Welcome, you are logged in.
+    
+            	<li><%= link_to "Profile", utilisateur_path(utilisateur_courant) %></li>
+            	<li><%= link_to "Paramètres", edit_utilisateur_path(utilisateur_courant) %></li>
+            	<li role="separator" class="divider"></li>
+            	<li><%= link_to "Se déconnecter", logout_path, method: "delete" %></li>
+            <% else %>
+      	<li><%= link_to "Se connecter", login_path %></li>
+
+    	<% end %>
+    
+    </div>
+
+    <div>
+        <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>">
+        <%= message %>
+      </div>
+    <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
