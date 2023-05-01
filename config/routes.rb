@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   # get 'sessions/new'
-  
-  get 'utilisateurs/new'
   root 'pages#home'
+
+  get 'utilisateurs/new'
   get 'pages/home'
 
   resources :utilisateurs
