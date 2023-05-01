@@ -5,33 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/356d3fb0b7.js" crossorigin="anonymous"></script>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     
   </head>
 
   <body>
 
     <%= render 'layouts/navigation'%>
-
-
-
-    <div>
-    <% if logged_in? %>
-    Welcome, you are logged in.
-    
-            	<li><%= link_to "Profile", utilisateur_path(utilisateur_courant) %></li>
-            	<li><%= link_to "Paramètres", edit_utilisateur_path(utilisateur_courant) %></li>
-            	<li role="separator" class="divider"></li>
-            	<li><%= link_to "Se déconnecter", logout_path, method: "delete" %></li>
-            <% else %>
-      	<li><%= link_to "Se connecter", login_path %></li>
-
-    	<% end %>
-    
-    </div>
-
 
     <div>
         <% flash.each do |message_type, message| %>
