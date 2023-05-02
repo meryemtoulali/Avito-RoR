@@ -29,4 +29,5 @@ class UtilisateursControllerTest < ActionDispatch::IntegrationTest
     @utilisateur.email = "a" * 244 + "@example.com"
     assert_not @utilisateur.valid?
   end
+
 end

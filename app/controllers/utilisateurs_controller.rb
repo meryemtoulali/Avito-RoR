@@ -1,11 +1,19 @@
 class UtilisateursController < ApplicationController
   def new
+
     @utilisateur = Utilisateur.new()
+
   end
 
   def show
     @utilisateur = Utilisateur.find(params[:id])
   end
+
+
+  private
+    def utilisateur_params
+      params.require(:utilisateur).permit(:nom, :email, :telephone, :ville, :password, :password_confirmation)
+    end
 
   def create
     @utilisateur = Utilisateur.new(utilisateur_params)
@@ -19,7 +27,4 @@ class UtilisateursController < ApplicationController
     end
   end
 
-  def utilisateur_params
-    params.require(:utilisateur).permit(:nom,:ville , :telephone, :email, :password, :password_confirmation)
-  end
 end

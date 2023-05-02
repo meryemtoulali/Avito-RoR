@@ -1,0 +1,43 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.legende {
+    color: rgb(155, 155, 155);
+    font-size: 16px;
+}
+
+.ext-login {
+    background-color: white;
+    border: 1px solid rgba(145, 158, 171, 0.32);
+    border-radius: 4px;
+    width: 170px;
+    height: 40px;
+}
+
+.ext-login-logo {
+    height: 24px;
+    margin-right: 5px;
+}
+
+.login-bg {
+    width: 40%;
+    background-repeat: no-repeat;
+    background-position: 10%;
+    background-size: cover;
+    background-image: url("login-bg.png");
+}
+
+.login-container {
+    height: 100vh;
+}
+
+.login-pane {
+    padding-top: 100px;
+    padding-left: 200px;
+}
+
+.login-form {
+    margin: 100 200;
+    max-width: 475px;
+}
+

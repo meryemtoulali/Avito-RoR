@@ -1,0 +1,52 @@
+
+
+<div class="d-flex flex-row login-container">
+
+
+    <div class="login-bg">
+    </div>
+
+    <div class="login-pane flex-fill">
+    <div class="login-form d-flex flex-column">
+        <h5 class="my-2">Connectez-vous à Avito</h5>
+        <span class="legende">Vous pouvez utiliser l'authentification rapide avec votre compte Facebook ou Gmail.</span>
+        <div class="d-flex flex-row justify-content-around">
+            <button class="btn ext-login  my-4"><%= image_tag "google.svg", class:"ext-login-logo" %> Se connecter</button>
+            <button class="btn ext-login  my-4"><%= image_tag "facebook.svg", class: "ext-login-logo" %> Se connecter</button>
+        </div>
+
+        <div class="ou-bien text-center mb-4">OU BIEN</div>
+
+
+        <%= form_for(:session, url: login_path, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+        <div class="legende my-3">Entrez votre e-mail et mot de passe</div>
+
+            <div class="form-group">
+                <div class="col control-label">
+                    <%= f.label "E-mail" %>
+                </div>
+                <div class="col">
+                <%= f.email_field :email, class:"form-control",  placeholder:"E-mail"%>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col control-label">
+                    <%= f.label "Mot de passe" %>
+                </div>
+                <div class="col">
+                    <%= f.password_field :password , class:"form-control",  placeholder:"Mot de passe"%>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-4">
+                    <%= f.submit "Se connecter", class: "btn btn-primary btn-block" %>
+                </div>
+            </div>
+        <% end %>
+
+        <p>Pas encore inscrit ? <%= link_to "S'inscrire gratuitement.", "#" %></p>
+    </div>
+    </div>
+    
+
+</div>
