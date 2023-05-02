@@ -1,60 +1,87 @@
-<h1>Utilisateurs#new</h1>
-<p>Find me in app/views/utilisateurs/new.html.erb</p>
+<div class="d-flex flex-row login-container">
 
-<h1>Inscription</h1>
-<%= render 'error_messages' %> <%# Afficher les erreurs %>
-<%= form_for(@utilisateur, :html => {class: "form-horizontal", role:"form"}) do |f| %>
-<div class="form-group">
-<div class="col-sm-2 control-label">
-        <%= f.label :nom %>
-</div>
-    <div class="col-sm-4">
-        <%= f.text_field :nom, class:"form-control",placeholder:"Entrer votre nom"%>
+    <div class="login-bg">
     </div>
- </div>
-<div class="form-group">
-    <div class="col-sm-2 control-label">
-        <%= f.label :email %>
+
+    <div class="login-pane flex-fill">
+    <div class="login-form d-flex flex-column">
+        <h5 class="my-2">Connectez-vous à Avito</h5>
+        <span class="legende">Vous pouvez utiliser l'authentification rapide avec votre compte Facebook ou Gmail.</span>
+        <div class="d-flex flex-row justify-content-around">
+            <button class="btn ext-login  my-4"><%= image_tag "google.svg", class:"ext-login-logo" %> Se connecter</button>
+            <button class="btn ext-login  my-4"><%= image_tag "facebook.svg", class: "ext-login-logo" %> Se connecter</button>
+        </div>
+
+        <div class="ou-bien text-center mb-4">OU BIEN</div>
+
+
+        <%= form_for(@utilisateur, :html => {class: "form-horizontal", role:"form"}) do |f| %>
+        <div class="legende my-3">Entrez vos coordonnées ci-dessous</div>
+
+            <div class="form-group">
+                <div class="col control-label">
+                    <%= f.label "Nom" %>
+                </div>
+                <div class="col">
+                <%= f.text_field :nom, class:"form-control",  placeholder:"Nom"%>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col control-label">
+                    <%= f.label "Email" %>
+                </div>
+                <div class="col">
+                <%= f.email_field :email, class:"form-control",  placeholder:"email"%>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col control-label">
+                    <%= f.label "Telephone" %>
+                </div>
+                <div class="col">
+                <%= f.text_field :telephone, class:"form-control",  placeholder:"telephone"%>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col control-label">
+                    <%= f.label "Mot de passe" %>
+                </div>
+                <div class="col">
+                    <%= f.password_field :password , class:"form-control",  placeholder:"Mot de passe"%>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col control-label">
+                    <%= f.label "Confirmer le mot de passe" %>
+                </div>
+                <div class="col">
+                <%= f.password_field :password_confirmation, class:"form-control",  placeholder:"Confirmer le mot de passe"%>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col control-label">
+                    <%= f.label "Ville" %>
+                </div>
+                <div class="col">
+                <%= f.text_field :ville, class:"form-control",  placeholder:"Ville"%>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-5">
+                    <%= f.submit "Creer un compte", class: "btn btn-primary btn-block" %>
+                </div>
+            </div>
+        <% end %>
+
+        <p>Vous avez deja un compte ? <%= link_to "Se connecter.", "#" %></p>
     </div>
-    <div class="col-sm-4">
-        <%= f.email_field :email, class:"form-control",placeholder:"Entrer votre email"%>
     </div>
+
+
 </div>
-<div class="form-group">
-<div class="col-sm-2 control-label">
-        <%= f.label :ville %>
-</div>
-    <div class="col-sm-4">
-        <%= f.text_field :ville, class:"form-control",placeholder:"Entrer votre ville"%>
-    </div>
- </div>
- <div class="form-group">
-<div class="col-sm-2 control-label">
-        <%= f.label :telephone %>
-</div>
-    <div class="col-sm-4">
-        <%= f.text_field :telephone, class:"form-control",placeholder:"Entrer votre numero de telephone"%>
-    </div>
- </div>
-<div class="form-group">
-<div class="col-sm-2 control-label">
-    <%= f.label :password %>
-</div>
-<div class="col-sm-4">
-    <%= f.password_field :password , class:"form-control",placeholder:"Entrer votre password"%>
-</div>
-</div>
-<div class="form-group">
-    <div class="col-sm-2 control-label">
-        <%= f.label :password_confirmation, "Confirmation" %>
-    </div>
-    <div class="col-sm-4">
-        <%= f.password_field :password_confirmation, class:"form-control", placeholder:"Entrer votre password"%>
-    </div>
-</div>
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-4">
-        <%= f.submit "Creer", class: "btn btn-primary" %>
-    </div>
-</div>
-<% end %>
