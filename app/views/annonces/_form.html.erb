@@ -1,0 +1,57 @@
+<%= form_with(model: annonce) do |form| %>
+  <% if annonce.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(annonce.errors.count, "error") %> prohibited this annonce from being saved:</h2>
+
+      <ul>
+        <% annonce.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :titre %>
+    <%= form.text_field :titre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ville %>
+    <%= form.text_field :ville %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.text_field :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :images %>
+    <%= form.text_field :images %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prix %>
+    <%= form.text_field :prix %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :secteur %>
+    <%= form.text_field :secteur %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -16,7 +16,7 @@
         <ul class="d-flex flex-row align-items-center justify-content-center">
             <li>
                 <a class="language" href=#>العربية<i class="fa fa-language mx-2"></i></a>
-                
+
 
             </li>
             <% if logged_in? %>
@@ -37,14 +37,16 @@
                         </a>
                     </div>
                 </div>
-                            
+
             <% else %>
                 <li class="se-connecter">
                     <%= link_to "SE CONNECTER", login_path %>
                 </li>
             <% end %>
             <li>
-                <button class="btn btn-success"><i class="fa fa-plus"></i>DÉPOSER UNE ANNONCE</button>
+                <button class="btn btn-success"><i class="fa fa-plus"></i>
+                <%= link_to "DEPOSER UNE ANNONCE", "#", style: "color: white" %>
+                </button>
             </li>
 
         </ul>

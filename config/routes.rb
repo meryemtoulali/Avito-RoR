@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :annonces
   # get 'sessions/new'
 
   resources :utilisateurs

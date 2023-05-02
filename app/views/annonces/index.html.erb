@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Annonces</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Ville</th>
+      <th>Date</th>
+      <th>Images</th>
+      <th>Prix</th>
+      <th>Type</th>
+      <th>Secteur</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @annonces.each do |annonce| %>
+      <tr>
+        <td><%= annonce.titre %></td>
+        <td><%= annonce.ville %></td>
+        <td><%= annonce.date %></td>
+        <td><%= annonce.images %></td>
+        <td><%= annonce.prix %></td>
+        <td><%= annonce.type %></td>
+        <td><%= annonce.secteur %></td>
+        <td><%= annonce.description %></td>
+        <td><%= link_to 'Show', annonce %></td>
+        <td><%= link_to 'Edit', edit_annonce_path(annonce) %></td>
+        <td><%= link_to 'Destroy', annonce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Annonce', new_annonce_path %>
