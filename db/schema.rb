@@ -10,21 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_03_003301) do
+ActiveRecord::Schema.define(version: 2023_05_03_112424) do
 
-  create_table "annonces", force: :cascade do |t|
-    t.string "titre"
-    t.string "ville"
-    t.string "date"
-    t.string "images"
-    t.float "prix"
-    t.string "type"
-    t.string "secteur"
-    t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "adresse"
-  end
+# Could not dump table "annonces" because of following StandardError
+#   Unknown type 'utilisateurs' for column 'proprietaire'
 
   create_table "utilisateurs", force: :cascade do |t|
     t.string "nom"

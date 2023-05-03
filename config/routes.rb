@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :annonces
   # get 'sessions/new'
   get 'annonces/new'
-  
+
   resources :utilisateurs
   get 'utilisateurs/new'
 

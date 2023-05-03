@@ -65,6 +65,6 @@ class AnnoncesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def annonce_params
-      params.require(:annonce).permit(:titre, :ville, :date, :images, :prix, :type, :secteur, :description)
+      params.require(:annonce).permit(:titre, :ville, :date, :images, :prix, :type, :secteur, :description, :adresse)
     end
 end
