@@ -12,8 +12,21 @@
 
 ActiveRecord::Schema.define(version: 2023_05_03_112424) do
 
-# Could not dump table "annonces" because of following StandardError
-#   Unknown type 'utilisateurs' for column 'proprietaire'
+  create_table "annonces", force: :cascade do |t|
+    t.string "titre"
+    t.string "ville"
+    t.string "date"
+    t.string "images"
+    t.float "prix"
+    t.string "type"
+    t.string "secteur"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "adresse"
+    t.integer "utilisateur_id"
+    t.index ["utilisateur_id"], name: "index_annonces_on_utilisateur_id"
+  end
 
   create_table "utilisateurs", force: :cascade do |t|
     t.string "nom"
@@ -25,4 +38,5 @@ ActiveRecord::Schema.define(version: 2023_05_03_112424) do
     t.string "password_digest"
   end
 
+  add_foreign_key "annonces", "utilisateurs"
 end
