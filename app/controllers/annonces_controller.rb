@@ -21,7 +21,8 @@ class AnnoncesController < ApplicationController
 
   # POST /annonces or /annonces.json
   def create
-    @annonce = Annonce.new(annonce_params)
+    @utilisateur = Utilisateur.find(utilisateur_courant.id)
+    @annonce = @utilisateur.annonces.build(annonce_params)
 
     respond_to do |format|
       if @annonce.save
@@ -65,6 +66,6 @@ class AnnoncesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def annonce_params
-      params.require(:annonce).permit(:titre, :ville, :date, :images, :prix, :type, :secteur, :description, :adresse)
+      params.require(:annonce).permit(:titre, :ville, :date, :images, :prix, :annonce_type, :secteur, :description, :adresse)
     end
 end
