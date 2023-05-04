@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_04_185216) do
+ActiveRecord::Schema.define(version: 2023_05_04_210806) do
 
 # Could not dump table "annonces" because of following StandardError
-#   Unknown type 'utilisateurs' for column 'proprietaire'
+#   Unknown type '' for column 'proprietaire'
 
   create_table "categories", force: :cascade do |t|
     t.string "nom"
@@ -31,4 +31,5 @@ ActiveRecord::Schema.define(version: 2023_05_04_185216) do
     t.string "password_digest"
   end
 
+  add_foreign_key "annonces", "utilisateurs"
 end

@@ -22,7 +22,7 @@ class AnnoncesController < ApplicationController
 
   # POST /annonces or /annonces.json
   def create
-    @annonce = Annonce.new(annonce_params)
+    @annonce = utilisateur_courant.annonces.build(annonce_params)
 
     respond_to do |format|
       if @annonce.save
