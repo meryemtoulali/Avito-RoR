@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_04_210806) do
+ActiveRecord::Schema.define(version: 2023_05_04_212729) do
 
-# Could not dump table "annonces" because of following StandardError
-#   Unknown type '' for column 'proprietaire'
+  create_table "annonces", force: :cascade do |t|
+    t.string "titre"
+    t.string "ville"
+    t.float "prix"
+    t.string "type"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "adresse"
+    t.text "image_data"
+    t.integer "category_id"
+    t.integer "utilisateur_id"
+    t.index ["utilisateur_id"], name: "index_annonces_on_utilisateur_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "nom"
