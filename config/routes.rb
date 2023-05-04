@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   resources :utilisateurs
   get 'utilisateurs/new'
-
   root 'pages#home'
 
   get 'utilisateurs/new'
