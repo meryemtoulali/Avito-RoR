@@ -11,13 +11,8 @@
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @annonce.date %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag(@annonce.image_url) if @annonce.image %>
+  <strong>Catégorie:</strong>
+  <%= @annonce.category.nom %>
 </p>
 
 <p>
@@ -31,13 +26,13 @@
 </p>
 
 <p>
-  <strong>Secteur:</strong>
-  <%= @annonce.secteur %>
+  <strong>Description:</strong>
+  <%= @annonce.description %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @annonce.description %>
+  <strong>Image:</strong>
+  <%= image_tag(@annonce.image_url) if @annonce.image %>
 </p>
 
 <%= link_to 'Edit', edit_annonce_path(@annonce) %> |

@@ -7,11 +7,10 @@
     <tr>
       <th>Titre</th>
       <th>Ville</th>
-      <th>Date</th>
+      <th>Catégorie</th>
       <th>Image</th>
       <th>Prix</th>
       <th>Type</th>
-      <th>Secteur</th>
       <th>Description</th>
       <th colspan="3"></th>
     </tr>
@@ -22,11 +21,10 @@
       <tr>
         <td><%= annonce.titre %></td>
         <td><%= annonce.ville %></td>
-        <td><%= annonce.date %></td>
+        <td><%= annonce.category.nom %></td>
         <td><%= image_tag annonce.image_url if annonce.image %></td>
         <td><%= annonce.prix %></td>
         <td><%= annonce.type %></td>
-        <td><%= annonce.secteur %></td>
         <td><%= annonce.description %></td>
         <td><%= link_to 'Show', annonce %></td>
         <td><%= link_to 'Edit', edit_annonce_path(annonce) %></td>
