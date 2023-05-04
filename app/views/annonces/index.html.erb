@@ -8,7 +8,7 @@
       <th>Titre</th>
       <th>Ville</th>
       <th>Date</th>
-      <th>Images</th>
+      <th>Image</th>
       <th>Prix</th>
       <th>Type</th>
       <th>Secteur</th>
@@ -23,7 +23,7 @@
         <td><%= annonce.titre %></td>
         <td><%= annonce.ville %></td>
         <td><%= annonce.date %></td>
-        <td><%= annonce.images %></td>
+        <td><%= image_tag annonce.image_url if annonce.image %></td>
         <td><%= annonce.prix %></td>
         <td><%= annonce.type %></td>
         <td><%= annonce.secteur %></td>

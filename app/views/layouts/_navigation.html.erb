@@ -45,7 +45,8 @@
             <% end %>
             <li>
                 <button class="btn btn-success"><i class="fa fa-plus"></i>
-                <%= link_to "DEPOSER UNE ANNONCE", "#", style: "color: white" %>
+                <%= link_to "DEPOSER UNE ANNONCE", {:controller => :annonces, :action => :new}, {style: "color: white"} %>
+
                 </button>
             </li>
 

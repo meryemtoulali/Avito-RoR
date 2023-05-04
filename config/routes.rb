@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :categories
   resources :annonces
   # get 'sessions/new'
   get 'annonces/new'

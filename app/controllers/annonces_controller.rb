@@ -1,6 +1,7 @@
 class AnnoncesController < ApplicationController
   before_action :set_annonce, only: %i[ show edit update destroy ]
 
+
   # GET /annonces or /annonces.json
   def index
     @annonces = Annonce.all
@@ -65,6 +66,6 @@ class AnnoncesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def annonce_params
-      params.require(:annonce).permit(:titre, :ville, :date, :images, :prix, :type, :secteur, :description, :adresse)
+      params.require(:annonce).permit(:titre, :ville, :date, :image, :prix, :type, :secteur, :description, :adresse, :category_id)
     end
 end

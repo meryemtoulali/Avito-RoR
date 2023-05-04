@@ -1,3 +1,25 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
+    <%= render 'layouts/mini_card'%>
+
+    <table>
+        <thead>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Prix</th>
+            <th>Type</th>
+            <th>Date</th>
+
+        </thead>
+        
+        <tbody>
+            <% @annonces.each do |annonce| %>
+                <td><%= annonce.titre%></td>
+                <td><%= annonce.description%></td>
+                <td><%= annonce.prix%></td>
+                <td><%= annonce.type%></td>
+                <td><%= annonce.created_at%></td>
+            <% end %>
+        </tbody>
+    </table>

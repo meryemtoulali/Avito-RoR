@@ -16,8 +16,8 @@
 </p>
 
 <p>
-  <strong>Images:</strong>
-  <%= @annonce.images %>
+  <strong>Image:</strong>
+  <%= image_tag(@annonce.image_url) if @annonce.image %>
 </p>
 
 <p>
