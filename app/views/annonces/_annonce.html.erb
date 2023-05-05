@@ -1,0 +1,8 @@
+<li id="annonce-<%= annonce.id %>">
+ <span class="utilisateur"><%= link_to annonce.utilisateur.nom,
+ annonce.utilisateur %></span>
+ <span class="titre"><%= annonce.titre %></span>
+ <span class="timestamp">
+    Posté il y a <%= time_ago_in_words(annonce.created_at) %>.
+ </span>
+</li>
