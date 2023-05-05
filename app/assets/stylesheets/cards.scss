@@ -1,4 +1,4 @@
-.mini-card{
+.mini-card, .big-card{
     box-shadow: 0px 3px 10px rgb(229, 229, 229);
     border-radius: 10px;
 }
@@ -6,6 +6,7 @@
 .mini-card .card-title{
     font-size: 18px;
 }
+
 
 .mini-card .img-fluid {
     width: 200px;
@@ -16,5 +17,15 @@
 .btn-carousel{
     border-radius: 30px !important;
     box-shadow: 0px 2px 5px rgb(229, 229, 229);
+}
 
+
+.big-card .card-title{
+    font-size: 24px;
+    color: blue;
+}
+
+.big-card .info{
+    font-size: 12px;
+    color: rgb(171, 171, 171)
 }
