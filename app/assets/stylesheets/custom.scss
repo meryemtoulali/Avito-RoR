@@ -48,3 +48,9 @@ body{
     font-family: 'Rubik';
     
 }
+
+@media (min-width: 1200px) {
+    .container{
+        min-width: 80vw;
+    }
+}
