@@ -24,7 +24,7 @@
         <td><%= annonce.category.nom %></td>
         <td><%= image_tag annonce.image_url if annonce.image %></td>
         <td><%= annonce.prix %></td>
-        <td><%= annonce.type %></td>
+        <td><%= annonce.annonce_type %></td>
         <td><%= annonce.description %></td>
         <td><%= link_to 'Show', annonce %></td>
         <td><%= link_to 'Edit', edit_annonce_path(annonce) %></td>

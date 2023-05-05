@@ -1,9 +1,10 @@
 <div class="container">
+<%= @query %>
     <h4 class="my-5">Résultats :</h4>
     <div class="d-flex flex-wrap">
         <% @results.each do |annonce| %>
             <%= render :partial => 'layouts/big_card', :locals => { :@annonce => annonce } %>
 
-        <% end %>
+        <% end %> 
     </div>
 </div>

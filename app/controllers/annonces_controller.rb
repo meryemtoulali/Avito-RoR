@@ -59,13 +59,19 @@ class AnnoncesController < ApplicationController
   end
 
   def search
-    if params[:search].blank?
-      redirect_to annonces_path and return
-    else
-      @parameter = params[:search].downcase
-      @results = Annonce.all.where("lower(titre) LIKE :search", search: "%#{@parameter}%")
+      query = [] 
+      if(!params[:search].blank?)
+        query.append("titre LIKE '%#{params[:search].downcase}%'")
+      end
+      if(!params[:category_id].blank?)
+        query.append("category_id = #{params[:category_id]}")
+      end
+      if(!params[:sub_category_id].blank?)
+        query.append("sub_category_id = #{params[:sub_category_id]}")
+      end
+      @query = query.join(" and ")
+      @results = Annonce.all.where(@query)
     
-    end
     
   end
 
