@@ -34,6 +34,9 @@ gem "net-http"
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 
+# to change locale
+gem 'rails-i18n'
+
 gem 'bcrypt', '3.1.13'
 
 # image processing

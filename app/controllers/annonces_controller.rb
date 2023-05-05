@@ -58,6 +58,30 @@ class AnnoncesController < ApplicationController
     end
   end
 
+  def search
+      query = [] 
+      if(!params[:search].blank?)
+        query.append("titre LIKE '%#{params[:search].downcase}%'")
+      end
+      if(!params[:category_id].blank?)
+        query.append("category_id = #{params[:category_id]}")
+      end
+      if(!params[:sub_category_id].blank?)
+        query.append("sub_category_id = #{params[:sub_category_id]}")
+      end
+      
+      if(query.length == 0)
+        @query = ""
+      elsif (query.length == 1)
+        @query = query[0]
+      else
+        @query = query.join(" and ")
+      end
+      @results = Annonce.all.where(@query)
+    
+    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_annonce

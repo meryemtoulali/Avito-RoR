@@ -1,0 +1,29 @@
+.search-container{
+    position: relative;
+    margin-bottom: 24px;
+    margin-top: 24px;
+    min-height: 120px;
+    padding: 40px 20px;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(68, 68, 68, 0.08) 0px 2px 18px 0px;
+    border-top: 4px solid;
+    border-image: linear-gradient(
+        to right, 
+        rgb(255, 76, 89) 33%, 
+        rgb(46, 201, 102) 33%, 
+        rgb(46, 201, 102) 66%, 
+        rgb(58, 164, 255) 66%) 
+        100% 0 0 0/4px 0 0 0 stretch;
+
+}
+
+.search-btn{
+    position: absolute;
+    bottom: -20px;
+    text-align: center;
+    .btn{
+        height: 40px;
+        width: 170px;
+    }
+}

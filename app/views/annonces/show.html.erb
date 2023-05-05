@@ -1,39 +1,12 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Titre:</strong>
-  <%= @annonce.titre %>
-</p>
+  
+  <h4 class="my-4">Détails de l'annonce</h4>
 
-<p>
-  <strong>Ville:</strong>
-  <%= @annonce.ville %>
-</p>
 
-<p>
-  <strong>Catégorie:</strong>
-  <%= @annonce.category.nom %>
-</p>
 
-<p>
-  <strong>Prix:</strong>
-  <%= @annonce.prix %>
-</p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @annonce.annonce_type %>
-</p>
+  
+  <%= render :partial => 'layouts/details_card', :locals => { :@annonce => @annonce } %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @annonce.description %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag(@annonce.image_url) if @annonce.image %>
-</p>
-
-<%= link_to 'Edit', edit_annonce_path(@annonce) %> |
-<%= link_to 'Back', annonces_path %>
+</>

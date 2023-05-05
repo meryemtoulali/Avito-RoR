@@ -1,8 +1,17 @@
+<div class="container">
+    <%= render 'layouts/search_form' %>
+</div>
+
+
 <section class="pt-4 pb-3">
   <div class="container">
     <div class="row">
         <div class="col-6">
-            <h4 class="mb-3">Nouvelles annonces d'immobilier </h4>
+            <div class="d-flex flex-row">
+                <div class="immobilier-icon-container mr-2"><i class="fa-solid fa-building"></i></div>
+                <h4 class="mb-3">Nouvelles annonces d'immobilier </h4>
+            </div>
+            
         </div>
         <div class="col-6 text-right">
             <a class="btn btn-light btn-carousel mb-3 mr-3" href="#carouselImmobilier" role="button" data-slide="prev">
@@ -42,7 +51,10 @@
   <div class="container">
     <div class="row">
         <div class="col-6">
-            <h4 class="mb-3">Nouvelles annonces de véhicules </h5>
+            <div class="d-flex flex-row">
+                <div class="vehicules-icon-container mr-2"><i class="fa fa-car"></i></div>
+                <h4 class="mb-3">Nouvelles annonces de véhicules </h4>
+            </div>
         </div>
         <div class="col-6 text-right">
             <a class="btn btn-light btn-carousel mb-3 mr-3" href="#carouselVehicules" role="button" data-slide="prev">
@@ -81,21 +93,24 @@
   <div class="container">
     <div class="row">
         <div class="col-6">
-            <h4 class="mb-3">Nouvelles annonces de loisirs </h5>
+            <div class="d-flex flex-row">
+                <div class="tech-icon-container mr-2"><i class="fa-solid fa-laptop"></i></div>
+                <h4 class="mb-3">Nouvelles annonces d'informatique et multimédia </h4>
+            </div>
         </div>
         <div class="col-6 text-right">
-            <a class="btn btn-light btn-carousel mb-3 mr-3" href="#carouselLoisirs" role="button" data-slide="prev">
+            <a class="btn btn-light btn-carousel mb-3 mr-3" href="#carouselTech" role="button" data-slide="prev">
                 <i class="fa fa-arrow-left"></i>
             </a>
-            <a class="btn btn-light btn-carousel mb-3 " href="#carouselLoisirs" role="button" data-slide="next">
+            <a class="btn btn-light btn-carousel mb-3 " href="#carouselTech" role="button" data-slide="next">
                 <i class="fa fa-arrow-right"></i>
             </a>
         </div>
         <div class="col-12">
-            <div id="carouselLoisirs" class="carousel slide" >
+            <div id="carouselTech" class="carousel slide" >
                 <div class="carousel-inner">
 
-                    <%= @annonces_loisirs.each_slice(4).with_index do |batch, index| %>
+                    <%= @annonces_tech.each_slice(4).with_index do |batch, index| %>
 
                     <div class="carousel-item <% if(index == 0) %> active <% end %>">
                         <div class="row px-2">

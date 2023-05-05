@@ -28,12 +28,13 @@
 }
 
 .login-container {
-    height: 100vh;
+    min-height: 100vh;
+    
 }
 
 .login-pane {
-    padding-top: 100px;
-    padding-left: 200px;
+    background-color: white;
+    padding: 100px 200px;
 }
 
 .login-form {
