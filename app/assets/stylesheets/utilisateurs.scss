@@ -2,3 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.reglages{
+    // margin: 30px,50px,30px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.nav-pills-custom .nav-link {
+    color: #666;
+    background: #d4d4d4;
+    position: relative;
+}
+
+.nav-pills-custom .nav-link.active {
+    color: #2e6bff;
+    background: #d4d4d4;
+}
+
+
+/* Add indicator arrow for the active tab */
+// @media (min-width: 992px) {
+//     .nav-pills-custom .nav-link::before {
+//         content: '';
+//         display: block;
+//         border-top: 8px solid transparent;
+//         border-left: 10px solid #fff;
+//         border-bottom: 8px solid transparent;
+//         position: absolute;
+//         top: 50%;
+//         right: -10px;
+//         transform: translateY(-50%);
+//         opacity: 0;
+//     }
+// }
+
+// .nav-pills-custom .nav-link.active::before {
+//     opacity: 1;
+// }
