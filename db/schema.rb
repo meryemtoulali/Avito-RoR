@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_04_212729) do
+ActiveRecord::Schema.define(version: 2023_05_05_002546) do
 
   create_table "annonces", force: :cascade do |t|
     t.string "titre"
     t.string "ville"
     t.float "prix"
-    t.string "type"
+    t.string "annonce_type"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2023_05_04_212729) do
     t.text "image_data"
     t.integer "category_id"
     t.integer "utilisateur_id"
+    t.integer "sub_category_id"
+    t.index ["sub_category_id"], name: "index_annonces_on_sub_category_id"
     t.index ["utilisateur_id"], name: "index_annonces_on_utilisateur_id"
   end
 
@@ -31,6 +33,14 @@ ActiveRecord::Schema.define(version: 2023_05_04_212729) do
     t.string "nom"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sub_categories", force: :cascade do |t|
+    t.string "nom"
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
   end
 
   create_table "utilisateurs", force: :cascade do |t|
@@ -43,5 +53,7 @@ ActiveRecord::Schema.define(version: 2023_05_04_212729) do
     t.string "password_digest"
   end
 
+  add_foreign_key "annonces", "sub_categories"
   add_foreign_key "annonces", "utilisateurs"
+  add_foreign_key "sub_categories", "categories"
 end
