@@ -58,6 +58,17 @@ class AnnoncesController < ApplicationController
     end
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to annonces_path and return
+    else
+      @parameter = params[:search].downcase
+      @results = Annonce.all.where("lower(titre) LIKE :search", search: "%#{@parameter}%")
+    
+    end
+    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_annonce
