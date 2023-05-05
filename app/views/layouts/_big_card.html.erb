@@ -1,18 +1,34 @@
-<div class="col-md-4">
+<div class="col-md-4 mb-4">
+<a class="card-link" href="<%= annonce_path(@annonce) %>">
+
     <div class="card border-0 big-card">
         <img class="card-img-top img-fluid" src=<%= @annonce.image_url %>>
                
         <div class="card-body">
             <h4 class="card-title"><%= @annonce.prix ? @annonce.prix.to_i.to_s+" Dhs" : "Prix non spécifié" %></h4>
-            <div class="card-text"><%= @annonce.titre.truncate(30) %></div>
+            <div class="card-text"><%= @annonce.titre.truncate(40) %></div>
             <div class="info">
-                <div><%= @annonce.sub_category.nom if @annonce.sub_category %></div>
+                <div class="my-2">
+                <% if @annonce.sub_category %>
+                    <%= @annonce.sub_category.nom %>
+                <% else %> &nbsp; 
+                <% end %>
+                </div>
                 <div class="row">
-                    <div class="info"><%= @annonce.ville if @annonce.ville %></div>
+                    <div class="timestamp mr-2">
+                        <i class="fa fa-clock mr-1"></i>
+                        il y a <%= time_ago_in_words(@annonce.created_at) %>
+                    </div>
+
+                    <div>
+                    <i class="fa fa-location-dot mr-1"></i>
+                        <%= @annonce.ville if @annonce.ville %>
+                    </div>
                 </div>
             </div>
 
         </div>
 
     </div>
+</a>
 </div>
