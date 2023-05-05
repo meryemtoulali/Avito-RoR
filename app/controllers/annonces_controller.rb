@@ -69,7 +69,14 @@ class AnnoncesController < ApplicationController
       if(!params[:sub_category_id].blank?)
         query.append("sub_category_id = #{params[:sub_category_id]}")
       end
-      @query = query.join(" and ")
+      
+      if(query.length == 0)
+        @query = ""
+      elsif (query.length == 1)
+        @query = query[0]
+      else
+        @query = query.join(" and ")
+      end
       @results = Annonce.all.where(@query)
     
     

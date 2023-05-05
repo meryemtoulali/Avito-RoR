@@ -8,8 +8,7 @@
 }
 
 
-.mini-card .img-fluid {
-    width: 200px;
+.mini-card img {
     height: 200px;
     object-fit: cover;
 }
@@ -23,6 +22,11 @@
 .big-card .card-title{
     font-size: 24px;
     color: blue;
+}
+
+.big-card img {
+    height: 300px;
+    object-fit: cover;
 }
 
 .big-card .info{

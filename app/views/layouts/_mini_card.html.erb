@@ -1,9 +1,7 @@
 <div class="col-md-3 mb-3">
     <div class="card border-0 mini-card">
-        <img class="card-img-top" src=<%= @annonce.image_url %>>
-       
+        <img class="card-img-top img-fluid" src=<%= @annonce.image_url %> >
 
-        
         <div class="card-body">
             <h4 class="card-title"><%= @annonce.prix ? @annonce.prix.to_i.to_s+" Dhs" : "Prix non spécifié" %></h4>
             <p class="card-text"><%= @annonce.titre.truncate(30) %></p>
