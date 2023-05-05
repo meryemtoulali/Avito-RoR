@@ -1,0 +1,98 @@
+<div class="card border-0 details-card mx-5">
+<div class="d-flex flex-row details-card-buttons justify-content-between">
+    <a href=<%= search_path %> class="">
+        <div class="back-button mr-2"><i class="fa fa-arrow-left"></i></div>
+    </a>
+
+    <a href=<%= "" %> class="" >
+        <div class="favorite-button mr-2"><i class="fa fa-heart"></i></div>
+    </a>
+
+</div>
+
+
+        <img class="card-img-top img-fluid" src=<%= @annonce.image_url %>>
+               
+        <div class="card-body px-5">
+            <h4 class="card-title pt-3">
+                <div class="d-flex flex-row justify-content-between">
+                    <div class="title"><%= @annonce.titre.truncate(40) %></div>
+                    <div class="price"><%= @annonce.prix ? @annonce.prix.to_i.to_s+" Dhs" : "Prix non spécifié" %></div>
+                
+                </div>
+            
+            </h4>
+            <div class="card-text">
+
+                <div class="d-flex flex-row mb-4">
+                    <div class="mr-2">
+                        <i class="fa fa-location-dot mr-1"></i>
+                        <%= @annonce.ville if @annonce.ville %>
+                    </div>
+                    <div>
+                        <i class="fa fa-clock mr-1"></i>
+                        il y a <%= time_ago_in_words(@annonce.created_at) %>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-row align-items-center justify-content-between owner-info">
+                    <div class="d-flex flex-row owner-info align-items-center">
+                        <%= image_tag "avatar.svg" , class: "avatar-lg" %>
+                        <div class="owner-name"><%= @annonce.utilisateur.nom %></div>
+                    </div>
+
+                    <button class="btn btn-primary"><i class="fa fa-phone mr-3"></i>CONTACTER LE VENDEUR</button>
+
+                    
+                </div>
+
+                <div class="d-flex flex-row justify-items-around annonce-info py-3">
+
+                    <div class="d-flex flex-column col-md-6">
+                        <div class="d-flex flex-row my-3">
+                            <div class="col-md-4 font-weight-bold">Catégorie :</div>
+                            <div class=""><%= @annonce.category.nom %></div>
+                        </div>
+                        <div class="d-flex flex-row my-3">
+                            <div class="col-md-4 font-weight-bold">Type :</div>
+                            <div class=""><%= @annonce.annonce_type %></div>
+                        </div>
+                        <div class="d-flex flex-row my-3">
+                            <div class="col-md-4 font-weight-bold">adresse :</div>
+                            <div class=""><%= @annonce.adresse %></div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column col-md-6">
+                        <div class="d-flex flex-row my-3">
+                            <div class="col-md-4 font-weight-bold">Sous-catégorie :</div>
+                            <div class=""><%= @annonce.sub_category.nom %></div>
+                        </div>
+                        <div class="d-flex flex-row my-3">
+                            <div class="col-md-4 font-weight-bold">Ville :</div>
+                            <div class=""><%= @annonce.ville %></div>
+                        </div>
+                        
+                    </div>
+               
+                 </div>
+
+                 <div class="description py-4 my-3">
+                    <h5 class="mb-3">Description :</h5>
+                    <div><%= @annonce.description %></div>
+
+                 
+                 </div>
+
+
+
+            
+                
+            
+            <!-- card text end -->
+            </div>
+
+
+        </div>
+
+    </div>
