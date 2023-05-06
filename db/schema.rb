@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2023_05_05_002546) do
     t.string "adresse"
     t.text "image_data"
     t.integer "category_id"
-    t.integer "utilisateur_id"
-    t.integer "sub_category_id"
+    t.integer "utilisateur_id", null: false
+    t.integer "sub_category_id", null: false
     t.index ["sub_category_id"], name: "index_annonces_on_sub_category_id"
     t.index ["utilisateur_id"], name: "index_annonces_on_utilisateur_id"
   end
