@@ -1,5 +1,24 @@
-<h1>New Annonce</h1>
+<div class="container my-5">
+    
+    <div class="d-flex flex-row align-items-start">
+        <div class="new-annonce-container col-md-8 mx-2 px-5 py-5">
+              
+            <div  class="mx-3 my-3">
+                <h4>Qu'annoncez-vous aujourd'hui?</h1>
+                Grâce à ces informations, les acheteurs peuvent trouver votre annonce plus facilement.
+            </div>
+                <%= render 'form', annonce: @annonce %>
+        </div>
 
-<%= render 'form', annonce: @annonce %>
+        
+        
+        <div class="tips-container col-md-4 ml-2 px-5 py-5">
+            tips
+        </div>
+
+    </div>
+</div>
+
+
 
 <%= link_to 'Back', annonces_path %>

@@ -66,8 +66,11 @@ class AnnoncesController < ApplicationController
       if(!params[:category_id].blank?)
         query.append("category_id = #{params[:category_id]}")
       end
-      if(!params[:sub_category_id].blank?)
-        query.append("sub_category_id = #{params[:sub_category_id]}")
+      # if(!params[:ville].blank?)
+      #   query.append("sub_category_id = #{params[:sub_category_id]}")
+      # end
+      if(!params[:ville].blank?)
+        query.append("ville LIKE '%#{params[:ville].downcase}%'")
       end
       
       if(query.length == 0)
@@ -90,6 +93,6 @@ class AnnoncesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def annonce_params
-      params.require(:annonce).permit(:titre, :ville, :date, :image, :prix, :type, :secteur, :description, :adresse, :category_id)
+      params.require(:annonce).permit(:titre, :ville, :image, :prix, :type_annonce, :description, :adresse, :category_id, :sub_category_id)
     end
 end

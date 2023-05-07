@@ -1,0 +1,56 @@
+<div class="black-navbar container-fluid">
+    <ul class="flex-row d-flex align-items-center justify-content-center">
+        <li><a href=<%= root_path %>>Avito</a></li>
+        <li><a href=#>AutoNeuf</a></li>
+        <li><a href=#>ImmoNeuf</a></li>
+        <li><a href=#>Simulateur crédit immobilier</a></li>
+        <li><a href=#>Boutique</a></li>
+        <li><a href=#>Magazine</a></li>
+        <li><a href=#>Aide et renseignements</a></li>
+    </ul>
+</div>
+
+<div class="white-navbar container-fluid">
+    <div class="d-flex flex-row align-items-center justify-content-between">
+        <a href=<%= root_path %>><%= image_tag "new-logo.svg" %></a>
+        <ul class="d-flex flex-row align-items-center justify-content-center">
+            <li>
+                <a class="language" href=#>العربية<i class="fa fa-language mx-2"></i></a>
+
+
+            </li>
+            <% if logged_in? %>
+                <div class="dropdown">
+                    <a class="btn dropdown-toggle profile-dropdown p-1" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <%= image_tag "avatar.svg" , class: "avatar-sm" %>
+                        <%= utilisateur_courant.nom %>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href=<%= utilisateur_path(utilisateur_courant) %>><i class="fa fa-box-archive mx-2"></i>Mes annonces</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-cart-shopping mx-2"></i>Mes commandes</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-heart mx-2"></i>Mes favoris</a>
+                        <a class="dropdown-item" href= <%= edit_utilisateur_path(utilisateur_courant) %> >
+                            <i class="fa fa-gears mx-2"></i>Réglages
+                        </a>
+                        <a class="dropdown-item" href= <%= logout_path %> data-method="delete">
+                            <i class="fa fa-arrow-right-from-bracket mx-2"></i></i>Se déconnecter
+                        </a>
+                    </div>
+                </div>
+
+            <% else %>
+                <li class="se-connecter">
+                    <%= link_to "SE CONNECTER", login_path %>
+                </li>
+            <% end %>
+            <li>
+                <button class="btn btn-success"><i class="fa fa-plus"></i>
+                <%= link_to "DEPOSER UNE ANNONCE", {:controller => :annonces, :action => :new}, {style: "color: white"} %>
+
+                </button>
+            </li>
+
+        </ul>
+
+    </div>
+</div>
