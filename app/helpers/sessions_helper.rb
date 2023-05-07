@@ -19,9 +19,16 @@ module SessionsHelper
         @utilisateur_courant = nil
     end
 
-    def log_out
-        session.delete(:utilisateur_id)
-        @utilisateur_courant = nil
+
+    def verifier_est_admin?
+        (@utilisateur_courant.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless @utilisateur_courant.admin?)
+    end
+
+    def authenticate
+        unless logged_in?
+          flash[:danger] = "Merci de se connecter."
+          redirect_to login_url
+        end
     end
 
 end

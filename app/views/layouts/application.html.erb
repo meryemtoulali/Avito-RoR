@@ -28,7 +28,7 @@
     </div>
     <%= yield %>
 
-    <%= render 'layouts/footer'%>
+    <%= render 'layouts/footer' unless (request.fullpath == login_path || request.fullpath == inscription_path )%>
   </body>
 
 </html>

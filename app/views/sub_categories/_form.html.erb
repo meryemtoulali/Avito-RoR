@@ -11,21 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nom %>
-    <%= form.text_field :nom %>
-  </div>
+    <div class="col control-label mb-2">
+      <%= form.label "Nom :" %>
+      <%= form.text_field :nom , class:"form-control"%>
+    </div>
 
-  <div class="form-group">
     <div class="col control-label">
-      <%= form.label :category %>
+      <%= form.label "Catégorie :" %>
+      <%= form.select(:category_id, options_for_select((Category.all.map { |category| [category.nom, category.id]})), {}, {class: "form-control"}) %>
     </div>
-    <div class="col">
-      <%= form.select :category_id, options_for_select(Category.all.map { |category| [category.nom, category.id]})%>
-    </div>
+
+
+  <br/>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-5">
+    <%= form.submit "Enregistrer" , class: "btn btn-primary"%>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_05_002546) do
+ActiveRecord::Schema.define(version: 2023_05_07_004813) do
 
   create_table "annonces", force: :cascade do |t|
     t.string "titre"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2023_05_05_002546) do
     t.string "adresse"
     t.text "image_data"
     t.integer "category_id"
-    t.integer "utilisateur_id", null: false
-    t.integer "sub_category_id", null: false
+    t.integer "utilisateur_id"
+    t.integer "sub_category_id"
     t.index ["sub_category_id"], name: "index_annonces_on_sub_category_id"
     t.index ["utilisateur_id"], name: "index_annonces_on_utilisateur_id"
   end
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2023_05_05_002546) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.boolean "admin", default: false
   end
 
   add_foreign_key "annonces", "sub_categories"

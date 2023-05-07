@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
+  #before_action :verifier_est_admin? , only: %i[ show index edit update destroy]
 
   # GET /categories or /categories.json
   def index

@@ -1,5 +1,8 @@
 class AnnoncesController < ApplicationController
   before_action :set_annonce, only: %i[ show edit update destroy ]
+  before_action :authenticate, only: %i[ new edit update destroy ]
+  before_action :est_proprietaire_ou_admin?, only: %i[ edit update destroy ]
+
 
 
   # GET /annonces or /annonces.json
@@ -83,6 +86,13 @@ class AnnoncesController < ApplicationController
       @results = Annonce.all.where(@query)
     
     
+  end
+
+  def est_proprietaire_ou_admin?
+      if(@annonce.utilisateur == utilisateur_courant) then return true
+      elsif(utilisateur_courant.admin?) then return true
+      else redirect_to(root_path)
+      end
   end
 
   private

@@ -25,6 +25,23 @@
                         <%= @annonce.ville if @annonce.ville %>
                     </div>
                 </div>
+
+                <div class="text-end annonce-mgmt-links">
+                    <div class="row justify-content-end">
+                        <% if @utilisateur_courant %>
+                            <% if @utilisateur_courant.admin? || @utilisateur_courant == @annonce.utilisateur  %>
+                                <%= link_to "Modifier", edit_annonce_path(@annonce), class:"mr-2" %>
+                                <%= link_to "Supprimer", @annonce, method: :delete,
+                                    data: { confirm: "confirmer" } %>
+                            <% else %> <br/>
+                            <% end %>
+                        <% end %>
+                        
+                    </div>
+                    
+                    
+                </div>
+                
             </div>
 
         </div>
