@@ -1,6 +1,6 @@
 class CommandesController < ApplicationController
   before_action :set_commande, only: %i[ show edit update destroy ]
-  before_action :set_annonce, only: %i[ show ]
+  before_action :set_annonce, only: %i[ show new ]
 
   # GET /commandes or /commandes.json
   def index
@@ -67,7 +67,11 @@ class CommandesController < ApplicationController
     end
     
     def set_annonce
-      @annonce = Annonce.find(@commande.annonce_id)
+      if(params[:annonce_id])
+        @annonce = Annonce.find(params[:annonce_id])
+      else
+        @annonce = Annonce.find(@commande.annonce_id)
+      end
     end
     
 
