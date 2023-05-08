@@ -28,7 +28,7 @@ class CommandesController < ApplicationController
     
     respond_to do |format|
       if @commande.save
-        format.html { redirect_to commande_url(@commande), notice: "Commande was successfully created." }
+        format.html { redirect_to commande_url(@commande), notice: "Commande créée avec succès.." }
         format.json { render :show, status: :created, location: @commande }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -81,11 +81,19 @@
                     <h5 class="mb-3">Description :</h5>
                     <div><%= @annonce.description %></div>
 
-                    <button class="btn btn-primary"><i class="fa fa-cart-shopping"></i>
-                <%= link_to "Acheter maintenant", {:controller => :commandes, :action => :new, :annonce_id => @annonce.id}, {style: "color: white"} %>
+                    
+                    
 
-                </button>
+                    
                  </div>
+
+                    <% if (@annonce.annonce_type.downcase == "vente" && @annonce.prix) %>
+                 <div class="text-right">
+                    <button class="btn btn-primary btn-bg"><i class="fa fa-cart-shopping"></i>
+                        <%= link_to "Acheter maintenant", {:controller => :commandes, :action => :new, :annonce_id => @annonce.id}, {style: "color: white"} %>
+                    </button>
+                    </div>
+                    <% end %>
 
 
 
