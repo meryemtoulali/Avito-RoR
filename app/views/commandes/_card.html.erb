@@ -1,0 +1,13 @@
+<a class="" href="<%= commande_path(@commande) %>">
+
+<div class="commande-preview-container py-3">
+    <div class="d-flex flex-row align-items-center justify-content-stretch">
+        <div class="col-2 commande-preview-img-container">
+            <img class="commande-preview-img" src=<%= @commande.annonce.image_url %> >
+        </div>
+        <div class="col-7"><%= @commande.annonce.titre %></div>
+        <div class="col-3 text-right"><%= @commande.prix %> Dhs</div>
+    </div>
+
+</div>
+</a>

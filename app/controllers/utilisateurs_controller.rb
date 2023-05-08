@@ -11,6 +11,7 @@ class UtilisateursController < ApplicationController
   def show
     @utilisateur = Utilisateur.find(params[:id])
     @annonces = @utilisateur.annonces
+    @commandes = @utilisateur.commandes
   end
 
   def create
