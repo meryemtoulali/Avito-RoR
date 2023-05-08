@@ -69,11 +69,14 @@ class AnnoncesController < ApplicationController
       if(!params[:category_id].blank?)
         query.append("category_id = #{params[:category_id]}")
       end
-      # if(!params[:ville].blank?)
-      #   query.append("sub_category_id = #{params[:sub_category_id]}")
-      # end
+      if(!params[:sub_category_id].blank?)
+        query.append("sub_category_id = #{params[:sub_category_id]}")
+      end
       if(!params[:ville].blank?)
         query.append("ville LIKE '%#{params[:ville].downcase}%'")
+      end
+      if(!params[:annonce_type].blank?)
+        query.append("annonce_type LIKE '%#{params[:annonce_type].downcase}%'")
       end
       
       if(query.length == 0)

@@ -1,21 +1,70 @@
-<ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
+<div class="container">
+
+<ul class="nav nav-tabs mt-3" role="tablist">
   <li class="nav-item" role="presentation">
-      <%= link_to 'Mes annonces', utilisateur_path(utilisateur_courant),class: "nav-link active" %>
+      <% if params[:tab] == "annonces" || !params[:tab]%>
+      <%= link_to 'Mes annonces', {:controller => :utilisateurs, :action => :show, :tab => 'annonces'},  {class: "nav-link active"} %>
+      <%else%>
+      <%= link_to 'Mes annonces', {:controller => :utilisateurs, :action => :show, :tab => 'annonces'},  {class: "nav-link"} %>
+      <%end%>
   </li>
   <li class="nav-item" role="presentation">
-    <%= link_to 'Mes commandes', '#',class: "nav-link" %>
+      <% if params[:tab] == "favoris"%>
+      <%= link_to 'Mes favoris', {:controller => :utilisateurs, :action => :show, :tab => 'favoris'},  {class: "nav-link active"} %>
+      <%else%>
+      <%= link_to 'Mes favoris', {:controller => :utilisateurs, :action => :show, :tab => 'favoris'},  {class: "nav-link"} %>
+      <%end%>
   </li>
   <li class="nav-item" role="presentation">
-    <%= link_to 'Mes favories', '#',class: "nav-link" %>
+    <% if params[:tab] == "commandes"%>
+      <%= link_to 'Mes commandes', {:controller => :utilisateurs, :action => :show, :tab => 'commandes'},  {class: "nav-link active"} %>
+      <%else%>
+      <%= link_to 'Mes commandes', {:controller => :utilisateurs, :action => :show, :tab => 'commandes'},  {class: "nav-link"} %>
+      <%end%>
+
   </li>
   <li class="nav-item" role="presentation">
-    <%= link_to 'Reglages', edit_utilisateur_path(utilisateur_courant)  ,class: "nav-link" %>
+    <%= link_to 'Réglages', edit_utilisateur_path(utilisateur_courant)  ,class: "nav-link" %>
   </li>
 </ul>
 
-<% if @utilisateur.annonces.any? %>
- <h3>Annonces (<%= @utilisateur.annonces.count %>)</h3>
- <ol class="annonces">
- <%= render @annonces %>
- </ol>
-<% end %>
+<div class="profile-container">
+  <% if params[:tab] == "annonces" || !params[:tab]%>
+      <% if @utilisateur.annonces.any? %>
+        <h4>Vos annonces : (<%= @utilisateur.annonces.count %>)</h4>
+        <div class="d-flex flex-wrap my-4">
+        <% @annonces.each do |annonce| %>
+            <%= render :partial => 'layouts/big_card', :locals => { :@annonce => annonce } %>
+        
+        <%end%>
+        </div>
+      <% else %> 
+        <div>Vous n'avez publié aucune annonce.</div>
+      <% end %>
+
+        
+  <% end %>
+  
+  <% if params[:tab] == "favoris"%>
+  favoris
+  <%end%>
+
+
+  <% if params[:tab] == "commandes"%>
+    <% if @utilisateur.commandes.any? %>
+        <h4>Vos commandes : (<%= @utilisateur.commandes.count %>)</h4>
+        <div class="d-flex flex-column my-4">
+        <% @commandes.each do |commande| %>
+            <%= render :partial => 'commandes/card', :locals => { :@commande => commande } %>
+        
+        <%end%>
+        </div>
+      <% else %> 
+        <div>Vous n'avez passé aucune commande.</div>
+      <% end %>
+  <%end%>
+
+
+
+</div>
+</div>

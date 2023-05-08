@@ -1,0 +1,114 @@
+<%= form_with(model: @commande) do |form| %>
+                <% if @commande.errors.any? %>
+                    <div id="error_explanation">
+                    <h2><%= pluralize(@commande.errors.count, "error") %> dans l'envoi de la demande :</h2>
+
+                    <ul>
+                        <% @commande.errors.each do |error| %>
+                        <li><%= error.full_message %></li>
+                        <% end %>
+                    </ul>
+                    </div>
+                <% end %>
+
+<div class="container my-5">
+    <%= link_to 'Retour', root_url %>
+    <div class="d-flex flex-row align-items-stretch mt-3">
+        <div class="new-annonce-container col-md-7 mx-2 px-5 py-5">
+              
+            <div  class="mx-3 mb-4">
+                <h5>Détails de la livraison</h5>
+                Complétez votre achat en fournissant vos coordonnées de livraison.
+            </div>
+                
+
+                <div class="form-group">
+                    <div class="col control-label">
+                    <%= form.label "Nom et prénom :" %>
+                    <%= form.text_field :nom , class:"form-control", placeholder:"Nom et prénom"  %>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col control-label">
+                    <%= form.label "Email :" %>
+                    <%= form.text_field :email , class:"form-control", placeholder:"Email"%>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col control-label">
+                    <%= form.label "Téléphone :" %>
+                    <%= form.text_field :telephone , class:"form-control", placeholder:"Téléphone"%>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col control-label">
+                    <%= form.label "Adresse de livraison :" %>
+                    <%= form.text_field :adresse , class:"form-control", placeholder:"Adresse de livraison"%>
+                    </div>
+                </div>
+
+
+                
+
+
+                <%= form.hidden_field :annonce_id, value: params[:annonce_id] %>
+
+
+
+        </div>
+
+        
+            <div class="new-annonce-container ml-2 px-5 py-5">
+                <div class="d-flex flex-row align-items-center">
+                    <img class="annonce-preview-img col-4" src=<%= @annonce.image_url %> >
+                    <h5 class="col-8"><%= @annonce.titre %></h5>
+                </div>
+                <div class="prix-livraison-info py-4 my-4">
+                    <div class="d-flex flex-row justify-content-between mb-2">
+                        <div>Sous-total</div>
+                        <div><%= @annonce.prix %> Dhs</div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-between">
+                        <div>Frais de livraison</div>
+                        <div>30 Dhs</div>
+                    </div>
+                </div>
+                <%= form.hidden_field :prix, value: (@annonce.prix + 30) %>
+                <div class="d-flex flex-row justify-content-between">
+                        
+                        <div>Total :</div>
+                        <h5><%= @annonce.prix + 30 %></h5>
+                </div>
+
+                <div class="methode-paiement mt-3 mb-4">
+
+                <div class="form-group">
+                <h5>Méthode de paiement :</h5><br />
+                    <div class="col control-label">
+                    
+                    <%= form.radio_button :methode_paiement, 'Carte bancaire' %> Carte bancaire<br />
+                    <%= form.radio_button :methode_paiement, 'A la livraison' %> Paiement à la livraison<br />
+                    </div>
+                </div>
+
+                    <div class="actions my-3">
+                    
+                    <%= form.submit "Valider la commande", class:"btn btn-primary btn-block"%>
+                
+                    </div>
+                    
+                
+                </div>
+                
+
+            </div>
+
+
+
+    </div>
+</div>
+
+<% end %>

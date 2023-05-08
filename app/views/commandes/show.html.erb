@@ -1,0 +1,80 @@
+<div class="container my-5">
+    <%= link_to 'Retour', root_url %>
+    <div class="d-flex flex-row align-items-stretch mt-3">
+        <div class="new-annonce-container col-md-7 mx-2 px-5 py-5">
+              
+            <div  class=" mb-4">
+                <h4>Détails de la commande</h4>
+                
+            </div>
+                
+
+                    <p>
+                      <strong>Nom :</strong>
+                      <%= @commande.nom %>
+                    </p>
+
+                    <p>
+  <strong>Email:</strong>
+  <%= @commande.email %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @commande.telephone %>
+</p>
+
+<p>
+  <strong>Adresse:</strong>
+  <%= @commande.adresse %>
+</p>
+
+<p>
+  <strong>Methode paiement:</strong>
+  <%= @commande.methode_paiement %>
+</p>
+
+
+                
+
+        </div>
+
+        
+            <div class="new-annonce-container ml-2 px-5 py-5">
+                <div class="d-flex flex-row align-items-center">
+                    <img class="annonce-preview-img col-4" src=<%= @annonce.image_url %> >
+                    <h5 class="col-8"><%= @annonce.titre %></h5>
+                </div>
+                <div class="prix-livraison-info py-4 my-4">
+                    <div class="d-flex flex-row justify-content-between mb-2">
+                        <div>Sous-total</div>
+                        <div><%= @commande.annonce.prix %> Dhs</div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-between">
+                        <div>Frais de livraison</div>
+                        <div>30 Dhs</div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between">
+                        
+                        <div>Total :</div>
+                        <h5><%= @commande.prix %></h5>
+                </div>                
+                    </div>
+                    
+                
+                </div>
+                
+
+            </div>
+
+
+    </div>
+</div>
+<%
+=begin%>
+ 
+<%= link_to 'Edit', edit_commande_path(@commande) %> |
+<%= link_to 'Back', commandes_path %> 
+<%
+=end%>
