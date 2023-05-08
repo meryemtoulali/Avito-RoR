@@ -1,0 +1,41 @@
+<div class="container my-5">
+    <%= link_to 'Retour', root_url %>
+    <div class="d-flex flex-row align-items-start mt-3">
+        <div class="new-annonce-container col-md-8 mx-2 px-5 py-5">
+              
+            <div  class="mx-3 my-3">
+                <h5>Détails de la livraison</h5>
+                Complétez votre achat en fournissant vos coordonnées de livraison.
+            </div>
+                <%= render 'form', commande: @commande %>
+        </div>
+
+        
+        
+        <div class="tips-container col-md-4 ml-2 px-5 py-5">
+        <h5 class="text-center mb-3">Comment définir mon annonce ?</h5>
+            <div class="tips-blue px-3 py-3">
+            
+                <div class="row py-3">
+                    <div class="mx-2 col-1">
+                        <i class="fa fa-lightbulb"></i>
+                    </div>
+                    <div class="col-9 text-justify">
+                    Choisir la bonne catégorie lors de l'insertion d'une annonce peut aider à augmenter la visibilité, la pertinence et l'efficacité, et éviter tout potentiel refus.
+            Il est important d'inclure une adresse postale claire et précise pour que les clients potentiels puissent facilement vous trouver.
+            Assurez-vous d'inclure un numéro de téléphone auquel les clients potentiels peuvent vous joindre
+            Gardez vos coordonnées à jour.
+                </div>
+            
+            </div>
+               
+                
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<%= link_to 'Back', commandes_path %>

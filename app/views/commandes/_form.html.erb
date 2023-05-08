@@ -1,0 +1,68 @@
+<%= form_with(model: commande) do |form| %>
+  <% if commande.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(commande.errors.count, "error") %> prohibited this commande from being saved:</h2>
+
+      <ul>
+        <% commande.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nom %>
+    <%= form.text_field :nom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telephone %>
+    <%= form.text_field :telephone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adresse %>
+    <%= form.text_field :adresse %>
+  </div>
+
+  <div class="field">
+    <%= form.label :methode_paiement %>
+    <%= form.text_field :methode_paiement %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prix %>
+    <%= form.text_field :prix %>
+  </div>
+
+
+  <%= form.hidden_field :annonce_id, value: params[:annonce_id] %>
+
+  <%
+=begin%>
+ <div class="field">
+    <%= form.label :utilisateur_id %>
+    <%= form.text_field :utilisateur_id %>
+  </div> 
+<%
+=end%>
+
+  <%
+=begin%>
+ <div class="field">
+    <%= form.label :annonce_id %>
+    <%= form.text_field :annonce_id %>
+  </div> 
+<%
+=end%>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

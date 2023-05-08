@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @commande.nom %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @commande.email %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @commande.telephone %>
+</p>
+
+<p>
+  <strong>Adresse:</strong>
+  <%= @commande.adresse %>
+</p>
+
+<p>
+  <strong>Methode paiement:</strong>
+  <%= @commande.methode_paiement %>
+</p>
+
+<p>
+  <strong>Prix:</strong>
+  <%= @commande.prix %>
+</p>
+
+<p>
+  <strong>Utilisateur:</strong>
+  <%= @commande.utilisateur_id %>
+</p>
+
+<p>
+  <strong>Annonce:</strong>
+  <%= @commande.annonce_id %>
+</p>
+
+<%= link_to 'Edit', edit_commande_path(@commande) %> |
+<%= link_to 'Back', commandes_path %>
