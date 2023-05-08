@@ -1,6 +1,6 @@
 class AnnoncesController < ApplicationController
-  before_action :set_annonce, only: %i[ show edit update destroy ]
-  before_action :authenticate, only: %i[ new edit update destroy ]
+  before_action :set_annonce, only: %i[ show edit update destroy like dislike]
+  before_action :authenticate, only: %i[ new edit update destroy like dislike]
   before_action :est_proprietaire_ou_admin?, only: %i[ edit update destroy ]
 
 
@@ -62,7 +62,7 @@ class AnnoncesController < ApplicationController
   end
 
   def search
-      query = [] 
+      query = []
       if(!params[:search].blank?)
         query.append("titre LIKE '%#{params[:search].downcase}%'")
       end
@@ -78,7 +78,7 @@ class AnnoncesController < ApplicationController
       if(!params[:annonce_type].blank?)
         query.append("annonce_type LIKE '%#{params[:annonce_type].downcase}%'")
       end
-      
+
       if(query.length == 0)
         @query = ""
       elsif (query.length == 1)
@@ -87,8 +87,8 @@ class AnnoncesController < ApplicationController
         @query = query.join(" and ")
       end
       @results = Annonce.all.where(@query)
-    
-    
+
+
   end
 
   def est_proprietaire_ou_admin?
@@ -96,6 +96,21 @@ class AnnoncesController < ApplicationController
       elsif(utilisateur_courant.admin?) then return true
       else redirect_to(root_path)
       end
+  end
+
+  def like
+    favori = Favori.new(utilisateur: utilisateur_courant, annonce: @annonce)
+    if favori.save
+      flash[:success] = "Added to favorites!"
+    else
+      flash[:error] = "Could not add to favorites."
+    end
+    redirect_to annonce_path(@annonce)
+  end
+
+  def dislike
+    utilisateur_courant.favoris.find_by(annonce_id: @annonce.id).destroy
+    redirect_to annonce_path(@annonce)
   end
 
   private
