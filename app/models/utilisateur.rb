@@ -1,5 +1,6 @@
 class Utilisateur < ApplicationRecord
     has_secure_password
+    has_many :favoris
     has_many :annonces
     has_many :commandes
     validates :nom, presence: true, length: {maximum: 50}

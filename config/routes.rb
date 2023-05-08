@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :favoris
   resources :commandes
   resources :sub_categories
   resources :categories

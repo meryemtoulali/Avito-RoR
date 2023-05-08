@@ -20,7 +20,8 @@ class UtilisateursController < ApplicationController
     if @utilisateur.save
       #Do if
       flash[:success] = "Bienvenue!"
-      redirect_to root_url
+      log_in @utilisateur
+      redirect_to utilisateur_path(@utilisateur)
     else
       render 'new'
     end
@@ -39,7 +40,7 @@ class UtilisateursController < ApplicationController
     end
   end
 
-  
+
 
   def  bon_utilisateur
     @utilisateur = Utilisateur.find(params[:id])

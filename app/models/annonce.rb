@@ -1,4 +1,5 @@
 class Annonce < ApplicationRecord
+  has_many :favoris
   belongs_to :category
   belongs_to :sub_category
   belongs_to :utilisateur
