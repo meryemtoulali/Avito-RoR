@@ -45,11 +45,17 @@
     <%= form.text_field :annonce_type ,class:"form-control"%> 
 <%
 =end%>
-    <select class="form-control" id="annonce_type">
+<%= form.select(:annonce_type, ['Achat', 'Vente', 'Location'], {}, { :class => 'form-control' }) %>
+
+    <%
+=begin%>
+ <select class="form-control" name="annonce_type" id="annonce_type">
       <option>Achat</option>
       <option>Vente</option>
       <option>Location</option>
-    </select>
+    </select> 
+<%
+=end%>
   </div>
 </div>
 

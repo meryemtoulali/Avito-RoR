@@ -1,7 +1,7 @@
 class UtilisateursController < ApplicationController
   before_action :authenticate, :only => [:show, :edit, :update]
   before_action :bon_utilisateur, only: [:show, :edit, :update]
-  before_action :verifier_est_admin?, only: [ :index, :edit, :show, :update, :destroy ]
+  before_action :verifier_est_admin?, only: [ :index, :destroy ]
 
 
   def new
