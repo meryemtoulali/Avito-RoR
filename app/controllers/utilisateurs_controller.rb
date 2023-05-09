@@ -25,7 +25,6 @@ class UtilisateursController < ApplicationController
 
   def create
     @utilisateur = Utilisateur.new(utilisateur_params)
-    # @utilisateur = Utilisateur.new(params[utilisateur_params])
     if @utilisateur.save
       #Do if
       flash[:success] = "Bienvenue!"
@@ -53,20 +52,14 @@ class UtilisateursController < ApplicationController
     end
   end
 
-
-
   def  bon_utilisateur
     @utilisateur = Utilisateur.find(params[:id])
     redirect_to(root_url) unless @utilisateur == @utilisateur_courant
   end
 
-
-
   private
     def utilisateur_params
       params.require(:utilisateur).permit(:nom, :email, :telephone, :ville, :password, :password_confirmation)
     end
-
-
 
 end

@@ -22,13 +22,6 @@ module SessionsHelper
 
 
     def verifier_est_admin?
-        # #puts "utilisateur courant : " +@utilisateur_courant
-        # puts "-------- Courant nil? >"
-        # puts @utilisateur_courant.nil?
-
-        # puts "utilisateur courant nil? : "+ @utilisateur_courant.nil?
-        # puts "utilisateur courant admin? : "+ @utilisateur_courant.admin?
-        # for some reason utilisateur_courant is nil when this is called from categories index
         @utilisateur_courant = @utilisateur_courant || Utilisateur.find_by(id: session[:utilisateur_id])
         (@utilisateur_courant.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless @utilisateur_courant.admin?)
         
