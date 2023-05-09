@@ -3,24 +3,42 @@
     <a href=<%= search_path %> class="">
         <div class="back-button mr-2"><i class="fa fa-arrow-left"></i></div>
     </a>
-
+<!-- >
     <a href=<%= "" %> class="" >
         <div class="favorite-button mr-2"><i class="fa fa-heart"></i></div>
     </a>
+<-->
+ <% if logged_in? %>
+    <div class="favorite-button mr-2">
 
+    <% if utilisateur_courant.favoris.exists?(annonce_id: @annonce) %>
+  <%= button_to dislike_annonce_path(@annonce), method: :delete ,style: 'background-color: transparent;border: none;padding: 0;' do%>
+  <%= content_tag :i, '', class: 'fa-solid fa-heart',style: 'color: #8d1b2c;' %> <% end %>
+
+<% else %>
+  <%= button_to like_annonce_path(@annonce), method: :post ,style: 'background-color: transparent;border: none;padding: 0;' do%>
+  <%= content_tag :i, '', class: 'fa fa-heart' %> <% end %>
+  <%# <i class="fa-solid fa-heart" style="color: #8d1b2c;"></i> %>
+<% end %>
+<% else %>
+<a href="#" class="" >
+        <div class="favorite-button mr-2"><i class="fa fa-heart"></i></div>
+    </a>
+   <% end %>
+    </div>
 </div>
 
 
         <img class="card-img-top img-fluid" src=<%= @annonce.image_url %>>
-               
+
         <div class="card-body px-5">
             <h4 class="card-title pt-3">
                 <div class="d-flex flex-row justify-content-between">
                     <div class="title"><%= @annonce.titre.truncate(40) %></div>
                     <div class="price"><%= @annonce.prix ? @annonce.prix.to_i.to_s+" Dhs" : "Prix non spécifié" %></div>
-                
+
                 </div>
-            
+
             </h4>
             <div class="card-text">
 
@@ -43,7 +61,7 @@
 
                     <button class="btn btn-primary"><i class="fa fa-phone mr-3"></i>CONTACTER LE VENDEUR</button>
 
-                    
+
                 </div>
 
                 <div class="d-flex flex-row justify-items-around annonce-info py-3">
@@ -72,22 +90,22 @@
                             <div class="col-md-4 font-weight-bold">Ville :</div>
                             <div class=""><%= @annonce.ville if @annonce.ville %></div>
                         </div>
-                        
+
                     </div>
-               
+
                  </div>
 
                  <div class="description py-4 my-3">
                     <h5 class="mb-3">Description :</h5>
                     <div><%= @annonce.description %></div>
 
-                    
-                    
 
-                    
+
+
+
                  </div>
 
-                    <% if (@annonce.annonce_type.downcase == "vente" && @annonce.prix) %>
+                    <% if (@annonce.annonce_type && @annonce.annonce_type.downcase == "vente" && @annonce.prix) %>
                  <div class="text-right">
                     <button class="btn btn-primary btn-bg"><i class="fa fa-cart-shopping"></i>
                         <%= link_to "Acheter maintenant", {:controller => :commandes, :action => :new, :annonce_id => @annonce.id}, {style: "color: white"} %>
@@ -97,9 +115,9 @@
 
 
 
-            
-                
-            
+
+
+
             <!-- card text end -->
             </div>
 

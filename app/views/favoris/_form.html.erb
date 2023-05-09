@@ -1,0 +1,27 @@
+<%= form_with(model: favori) do |form| %>
+  <% if favori.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(favori.errors.count, "error") %> prohibited this favori from being saved:</h2>
+
+      <ul>
+        <% favori.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :utilisateur_id %>
+    <%= form.text_field :utilisateur_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :annone_id %>
+    <%= form.text_field :annone_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

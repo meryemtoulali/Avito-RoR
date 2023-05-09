@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :favoris
   resources :commandes
   resources :sub_categories
   resources :categories
@@ -21,9 +22,13 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  
+
   get 'search' => 'annonces#search'
 
+  resources :annonces do
+    post 'like' , on: :member
+    delete 'dislike', on: :member
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end

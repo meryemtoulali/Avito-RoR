@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_08_103118) do
+ActiveRecord::Schema.define(version: 2023_05_09_035142) do
 
   create_table "annonces", force: :cascade do |t|
     t.string "titre"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2023_05_08_103118) do
     t.index ["utilisateur_id"], name: "index_commandes_on_utilisateur_id"
   end
 
+  create_table "favoris", force: :cascade do |t|
+    t.integer "utilisateur_id", null: false
+    t.integer "annonce_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["annonce_id"], name: "index_favoris_on_annonce_id"
+    t.index ["utilisateur_id"], name: "index_favoris_on_utilisateur_id"
+  end
+
   create_table "sub_categories", force: :cascade do |t|
     t.string "nom"
     t.integer "category_id", null: false
@@ -69,9 +78,17 @@ ActiveRecord::Schema.define(version: 2023_05_08_103118) do
     t.boolean "admin", default: false
   end
 
+  create_table "villes", force: :cascade do |t|
+    t.string "nom"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "annonces", "sub_categories"
   add_foreign_key "annonces", "utilisateurs"
   add_foreign_key "commandes", "annonces"
   add_foreign_key "commandes", "utilisateurs"
+  add_foreign_key "favoris", "annonces"
+  add_foreign_key "favoris", "utilisateurs"
   add_foreign_key "sub_categories", "categories"
 end
