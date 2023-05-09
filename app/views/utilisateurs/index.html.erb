@@ -1,0 +1,45 @@
+<div class="container my-4">
+
+    <%= link_to 'Retour', root_url %>
+    <div class="mt-3 simple-container px-5 py-5">
+            <div  class="mb-5">
+                <h4>Index des utilisateurs</h1>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>Nom</th>
+                  <th>Email</th>
+                  <th>Ville</th>
+                  <th>Téléphone</th>
+                  <th>Admin?</th>
+                  <th colspan="2"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @utilisateurs.each do |utilisateur| %>
+                  <tr>
+                    <td><%= utilisateur.id %></td>
+                    <td><%= utilisateur.nom %></td>
+                    <td><%= utilisateur.email %></td>
+                    <td><%= utilisateur.ville %></td>
+                    <td><%= utilisateur.telephone %></td>
+                    <td><%= utilisateur.admin %></td>
+                    <td><%= link_to 'Modifier', edit_utilisateur_path(utilisateur) %></td>
+                    <td><%= link_to 'Supprimer', utilisateur, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <br/>
+            <%= link_to 'Nouvel utilisateur', new_utilisateur_path %>
+
+                
+    </div>
+
+    </div>
+</div>
+

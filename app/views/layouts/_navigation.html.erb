@@ -32,9 +32,15 @@
                         <a class="dropdown-item" href= <%= edit_utilisateur_path(utilisateur_courant) %> >
                             <i class="fa fa-gears mx-2"></i>Réglages
                         </a>
+                        <% if @utilisateur_courant.admin? %>
+                        <a class="dropdown-item" href= <%= pages_admin_control_path %> >
+                            <i class="fa fa-screwdriver-wrench mx-2"></i>Options admin
+                        </a>
+                        <% end %>
                         <a class="dropdown-item" href= <%= logout_path %> data-method="delete">
                             <i class="fa fa-arrow-right-from-bracket mx-2"></i></i>Se déconnecter
                         </a>
+                        
                     </div>
                 </div>
 

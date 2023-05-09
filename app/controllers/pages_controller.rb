@@ -1,7 +1,11 @@
 class PagesController < ApplicationController
 before_action :set_carousels, only: %i[ home ]
+before_action :verifier_est_admin?, only: %i[admin_control]
 
   def home
+  end
+
+  def admin_control
   end
 
   private

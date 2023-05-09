@@ -1,6 +1,6 @@
 class SubCategoriesController < ApplicationController
   before_action :set_sub_category, only: %i[ show edit update destroy ]
-  #before_action :verifier_est_admin?, only: %i[new show index edit update destroy]
+  before_action :verifier_est_admin?, only: %i[new show index edit update destroy]
 
 
   # GET /sub_categories or /sub_categories.json

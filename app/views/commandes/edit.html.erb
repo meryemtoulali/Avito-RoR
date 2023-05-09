@@ -1,3 +1,22 @@
+<div class="container my-4">
+
+    <%= link_to 'Retour', commandes_path %>
+    <div class="mt-3 simple-container px-5 py-5">
+            <div  class="mb-5">
+                <h4>Modifier la commande</h1>
+            </div>
+
+            <%= render 'form', commande: @commande %>
+
+                 
+    </div>
+
+    </div>
+</div>
+
+
+
+
 <h1>Editing Commande</h1>
 
 <%= render 'form', commande: @commande %>

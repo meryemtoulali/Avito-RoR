@@ -1,6 +1,9 @@
 class CommandesController < ApplicationController
+  before_action :authenticate, :only => [:new, :show, :edit, :update]
   before_action :set_commande, only: %i[ show edit update destroy ]
   before_action :set_annonce, only: %i[ show new ]
+  before_action :verifier_est_admin? , only: %i[ index edit update destroy]
+
 
   # GET /commandes or /commandes.json
   def index

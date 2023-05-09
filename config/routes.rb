@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get 'utilisateurs/new'
   get 'pages/home'
+  get 'pages/admin_control'
   get 'inscription' => 'utilisateurs#new'
 
   resources :utilisateurs

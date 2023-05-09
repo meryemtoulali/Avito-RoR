@@ -39,18 +39,33 @@
     </div>
   </div>
 
-  <div class="field">
-    <%= form.label :methode_paiement %>
-    <%= form.text_field :methode_paiement %>
+  <div class="form-group">
+    <div class="col control-label">
+      <%= form.label "Méthode de paiement :" %>
+      <%= form.text_field :methode_paiement , class:"form-control"%>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :prix %>
-    <%= form.text_field :prix %>
+  <div class="form-group">
+    <div class="col control-label">
+      <%= form.label "Prix :" %>
+      <%= form.text_field :prix , class:"form-control"%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col control-label">
+      <%= form.label "Id annonce :" %>
+      <%= form.text_field :annonce_id , class:"form-control"%>
+    </div>
   </div>
 
 
-  <%= form.hidden_field :annonce_id, value: params[:annonce_id] %>
+  <%
+=begin%>
+ <%= form.hidden_field :annonce_id, value: params[:annonce_id] %> 
+<%
+=end%>
 
   <%
 =begin%>
