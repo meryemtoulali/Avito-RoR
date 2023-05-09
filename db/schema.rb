@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_08_210745) do
+ActiveRecord::Schema.define(version: 2023_05_09_035142) do
 
   create_table "annonces", force: :cascade do |t|
     t.string "titre"
@@ -76,6 +76,12 @@ ActiveRecord::Schema.define(version: 2023_05_08_210745) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.boolean "admin", default: false
+  end
+
+  create_table "villes", force: :cascade do |t|
+    t.string "nom"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "annonces", "sub_categories"
