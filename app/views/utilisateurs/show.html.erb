@@ -35,18 +35,28 @@
         <div class="d-flex flex-wrap my-4">
         <% @annonces.each do |annonce| %>
             <%= render :partial => 'layouts/big_card', :locals => { :@annonce => annonce } %>
-        
         <%end%>
         </div>
-      <% else %> 
+      <% else %>
         <div>Vous n'avez publié aucune annonce.</div>
       <% end %>
 
-        
+
   <% end %>
-  
+
   <% if params[:tab] == "favoris"%>
-  favoris
+  <% if @utilisateur.favoris.any? %>
+        <h4>Vos favoris : (<%= @utilisateur.favoris.count %>)</h4>
+        <div class="d-flex flex-wrap my-4">
+        <% Annonce.all.each do |annonce| %>
+        <% if @utilisateur.favoris.exists?(annonce_id: annonce.id) %>
+            <%= render :partial => 'layouts/big_card', :locals => { :@annonce => annonce } %>
+             <%end%>
+        <%end%>
+        </div>
+      <% else %>
+        <div>Vous n'avez aucune annonce favorites.</div>
+      <% end %>
   <%end%>
 
 
@@ -56,10 +66,10 @@
         <div class="d-flex flex-column my-4">
         <% @commandes.each do |commande| %>
             <%= render :partial => 'commandes/card', :locals => { :@commande => commande } %>
-        
+
         <%end%>
         </div>
-      <% else %> 
+      <% else %>
         <div>Vous n'avez passé aucune commande.</div>
       <% end %>
   <%end%>

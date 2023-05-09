@@ -8,6 +8,7 @@
         <div class="favorite-button mr-2"><i class="fa fa-heart"></i></div>
     </a>
 <-->
+ <% if logged_in? %>
     <div class="favorite-button mr-2">
 
     <% if utilisateur_courant.favoris.exists?(annonce_id: @annonce) %>
@@ -19,7 +20,11 @@
   <%= content_tag :i, '', class: 'fa fa-heart' %> <% end %>
   <%# <i class="fa-solid fa-heart" style="color: #8d1b2c;"></i> %>
 <% end %>
-
+<% else %>
+<a href="#" class="" >
+        <div class="favorite-button mr-2"><i class="fa fa-heart"></i></div>
+    </a>
+   <% end %>
     </div>
 </div>
 
