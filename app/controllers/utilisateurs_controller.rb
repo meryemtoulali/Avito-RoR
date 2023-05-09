@@ -33,9 +33,13 @@ class UtilisateursController < ApplicationController
 
   def update
     @utilisateur = Utilisateur.find(params[:id])
+    puts "Params: #{utilisateur_params}"
     if @utilisateur.update(utilisateur_params)
+      puts "Update successful"
       flash[:success] = "Profil actualise avec success"
+      render 'edit'
     else
+      puts @utilisateur.errors.full_messages
       render 'edit'
     end
   end
@@ -47,9 +51,13 @@ class UtilisateursController < ApplicationController
     redirect_to(root_url) unless @utilisateur == @utilisateur_courant
   end
 
+
+
   private
     def utilisateur_params
       params.require(:utilisateur).permit(:nom, :email, :telephone, :ville, :password, :password_confirmation)
     end
+
+
 
 end
