@@ -27,8 +27,8 @@
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href=<%= utilisateur_path(utilisateur_courant) %>><i class="fa fa-box-archive mx-2"></i>Mes annonces</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-cart-shopping mx-2"></i>Mes commandes</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-heart mx-2"></i>Mes favoris</a>
+                        <a class="dropdown-item" href=<%= utilisateur_path(utilisateur_courant) + '?tab=commandes'%>><i class="fa fa-cart-shopping mx-2"></i>Mes commandes</a>
+                        <a class="dropdown-item" href=<%= utilisateur_path(utilisateur_courant) + '?tab=favoris'%>><i class="fa fa-heart mx-2"></i>Mes favoris</a>
                         <a class="dropdown-item" href= <%= edit_utilisateur_path(utilisateur_courant) %> >
                             <i class="fa fa-gears mx-2"></i>Réglages
                         </a>
